@@ -1,0 +1,95 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+.hide {
+    display: none;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.header img {
+    width: 75px;
+    height: 53px;
+}
+
+.header ion-icon {
+    font-size: 45px;
+}
+
+.chat {
+    margin: 90px 0 0 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat li {
+    width: 100%;
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.send-message {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px 0 18px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.send-message input {
+    width: 75%;
+    height: 30px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 21px;
+    padding-left: 8px;
+    border: none;
+}
+
+.send-message ion-icon {
+    font-size: 26px;
+}
+
+
+/*.start .img {
+    width: 130px;
+    height: 92px;
+}
+
+.start input {
+    width: 260px;
+    height: 54px;
+    border-radius: 4px;
+    border: none;
+}
+
+.start button {
+    background-color: #ffffff;
+    width: 109px;
+    height: 45px;
+    border-radius: 9px;
+    /*border: none;
+}/*
+
