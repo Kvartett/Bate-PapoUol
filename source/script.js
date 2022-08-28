@@ -1,14 +1,17 @@
  let chat = [];
  let users = [];
  let name = "";
+ let user = {};
+ 
 
  function userName() {
     name = prompt('Qual seu nome de usuario?');
  }
  userName();
 
+
  function sendUser(response) {
-    const user = {
+    user = {
         name: `${name}`
     }
 
@@ -17,6 +20,13 @@
     promise.catch(anErrorUser);
  }
  sendUser();
+ const myInterval = setInterval(userStatus, 5000);
+
+
+ function userStatus() {
+    const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
+ }
+
 
  function getData(response) {
     console.log(response);
@@ -25,6 +35,7 @@
     promise.then(userData);
     promise.catch(error);
  }
+
 
  function anErrorUser(error) {
     console.log(error.response.status);
@@ -37,10 +48,12 @@
 
  }
 
+
  function anError(error) {
     console.log(error);
  }
  
+
  function userData(response) {
     // resposta completa
     console.log("Resposta completa do get", response);
