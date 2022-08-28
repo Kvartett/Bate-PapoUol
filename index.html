@@ -22,23 +22,10 @@
             <img src="./source/image/logo.png"/>
             <ion-icon name="people"></ion-icon>
         </div>
-        <ul class="chat">
-            <li class="message">
-                teste
-            </li>
-            <li class="message">
-                teste
-            </li>
-            <li class="message">
-                teste
-            </li>
-            <li class="message">
-                teste
-            </li>     
-        </ul>
+        <ul class="chat"></ul>
         <div class="send-message">
-            <input type="text" placeholder="Escreva aqui..."/>
-            <ion-icon name="paper-plane-outline"></ion-icon>
+            <input class="send" type="text" placeholder="Escreva aqui..."/>
+            <ion-icon name="paper-plane-outline" onclick="sendMessage()"></ion-icon>
         </div>
         <div class="sidebar"></div>
     </div>
