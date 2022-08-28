@@ -55,24 +55,22 @@
  const myIntervalMessages = setInterval(getMessages, 3000);
  function getMessages(response) {
     const ul = document.querySelector('.chat');
-    ul.innerHTML = "";
 
     const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     promise.then(messagesArrived);
     promise.catch(anError);
  }
-  
+
 
  function messagesArrived(response) {
     chat = response.data;
-    console.log(chat);
 
     renderMessages();
  }
 
  function renderMessages() {
     const ul = document.querySelector('.chat');
-    ul.scrollIntoView();
+    ul.innerHTML = "";
 
     for (let i = 0; i < chat.length; i++) {
         if (chat[i].type === 'status') {
@@ -91,6 +89,9 @@
                 <span>(${chat[i].time})</span> <strong>${chat[i].from}</strong> para <strong>${chat[i].to}:</strong> ${chat[i].text}
             </li>`           
         }
+
+        let lastMessage = ul.lastElementChild;
+        lastMessage.scrollIntoView();
     }
  }
 
@@ -105,9 +106,8 @@
     }
 
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', newMessage);
-    promise.then(messagesArrived);
     promise.catch(anError);
 
-    renderMessages();
+    messageElement.value = "";
  }
 

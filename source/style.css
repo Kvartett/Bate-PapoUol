@@ -32,7 +32,7 @@ body {
 }
 
 .chat {
-    margin: 90px 0 90px 0px;
+    margin: 90px 0 70px 0px;
     padding-left: 8px;
     box-sizing: border-box;
     display: flex;
@@ -47,6 +47,7 @@ body {
     font-size: 14px;
     line-height: 16px;
     margin-bottom: 4px;
+    word-wrap: break-word;
 }
 
 .feed span {
@@ -97,8 +98,15 @@ body {
     font-size: 26px;
 }
 
+.start {
+    background-color: white;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+}
 
-/*.start .img {
+.start .img {
     width: 130px;
     height: 92px;
 }
@@ -115,6 +123,5 @@ body {
     width: 109px;
     height: 45px;
     border-radius: 9px;
-    /*border: none;
-}/*
-
+    border: none;
+}
