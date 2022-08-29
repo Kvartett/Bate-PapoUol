@@ -46,7 +46,7 @@ function logIn() {
     window.location.reload()
  }
  
- const myIntervalMessages = setInterval(getMessages, 1000);
+ const myIntervalMessages = setInterval(getMessages, 3000);
  function getMessages(response) {
     const ul = document.querySelector('.chat');
 
