@@ -2,12 +2,12 @@
  let name = "";
  let user = {};
  
-
- function userName() {
-    name = prompt("What's your name?");
- }
- userName();
-
+function logIn() {
+    name = document.querySelector('.log').value;
+    const start = document.querySelector('.start');
+    start.classList.add('hide');
+    sendUser();
+}
 
  function sendUser(response) {
     user = {
@@ -16,10 +16,9 @@
 
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', user);
     promise.catch(anErrorUser);
+    const myInterval = setInterval(userStatus, 5000);
  }
- sendUser();
- const myInterval = setInterval(userStatus, 5000);
-
+ 
 
  function userStatus() {
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
@@ -27,8 +26,6 @@
 
 
  function getData(response) {
-    console.log(response);
-
     const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants');
     promise.then(userData);
     promise.catch(error);
@@ -36,8 +33,6 @@
 
 
  function anErrorUser(error) {
-    console.log(error.response.status);
-
     if (error.response.status === 400) {
         alert("Username in use, please enter another one!")
         name = prompt('Qual seu nome de usuario?');
@@ -48,11 +43,10 @@
 
 
  function anError(error) {
-    console.log(error);
     window.location.reload()
  }
  
- const myIntervalMessages = setInterval(getMessages, 3000);
+ const myIntervalMessages = setInterval(getMessages, 1000);
  function getMessages(response) {
     const ul = document.querySelector('.chat');
 
@@ -81,7 +75,7 @@
         } else if (chat[i].type === "message") {
             ul.innerHTML = ul.innerHTML + `
             <li class="message feed">
-                <span>(${chat[i].time})</span> <strong>${chat[i].from}</strong> para <strong>todos:<strong> ${chat[i].text}
+                <span>(${chat[i].time})</span> <strong>${chat[i].from}</strong> para <strong>todos:</strong> ${chat[i].text}
             </li>`
         } else if (chat[i].to === name){
             ul.innerHTML = ul.innerHTML + `
